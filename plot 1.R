@@ -1,0 +1,6 @@
+setwd("C:/Users/Administrator/Documents/project 2/Project-2")
+NEI <- readRDS("summarySCC_PM25.rds")
+plotdata <- aggregate(NEI[c("Emissions")], list(year = NEI$year), sum)
+png('plot1.png', width=480, height=480)
+plot(plotdata, type = "o", main = "Total PM2.5 Emissions", xlab = "Year", ylab = "PM2.5 Emissions", pch = 19, col = "darkblue", lty = 6)
+dev.off()

@@ -1,0 +1,7 @@
+setwd("C:/Users/Administrator/Documents/project 2/Project-2")
+NEI <- readRDS("summarySCC_PM25.rds")
+baltimore <- subset(NEI, fips == "24510")
+plotdata <- aggregate(baltimore[c("Emissions")], list(year = baltimore$year), sum)
+png('plot2.png', width=480, height=480)
+plot(plotdata$year, plotdata$Emissions, type = "l", main = "Total PM2.5 Emission in Baltimore 1999-2008",xlab = "Year", ylab = "Emissions")
+dev.off()
